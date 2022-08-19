@@ -23,9 +23,9 @@ namespace Codecool.LinkedList
         {
             if (Size != 0) {
                 var currentNode = _head;
-                while (currentNode != null) {
+                while (currentNode.Next != null) {
                     currentNode = currentNode.Next;}
-                currentNode = new Link(data);
+                currentNode.Next = new Link(data);
             } else {
                 _head = new Link(data); }
             Size++;
@@ -38,7 +38,20 @@ namespace Codecool.LinkedList
         /// <returns>Value of requested element.</returns>
         public int Get(int index)
         {
-            throw new NotImplementedException();
+            if (Size <= index)
+            {
+                throw new IndexOutOfRangeException("Tried to remove an invalid item!");
+            }
+            var currentNode = _head;
+            var counter = 0;
+            while (counter != index)
+            {
+                currentNode = currentNode.Next;
+                counter++;
+            }
+
+            return currentNode.Data;
+
         }
 
         /// <summary>
