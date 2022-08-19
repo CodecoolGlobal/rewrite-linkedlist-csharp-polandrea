@@ -21,7 +21,14 @@ namespace Codecool.LinkedList
         /// <param name="data">Value to be appended.</param>
         public void Add(int data)
         {
-            throw new NotImplementedException();
+            if (Size != 0) {
+                var currentNode = _head;
+                while (currentNode != null) {
+                    currentNode = currentNode.Next;}
+                currentNode = new Link(data);
+            } else {
+                _head = new Link(data); }
+            Size++;
         }
 
         /// <summary>
