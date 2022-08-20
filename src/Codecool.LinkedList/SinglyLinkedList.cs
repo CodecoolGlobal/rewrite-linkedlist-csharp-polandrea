@@ -49,9 +49,7 @@ namespace Codecool.LinkedList
                 currentNode = currentNode.Next;
                 counter++;
             }
-
             return currentNode.Data;
-
         }
 
         /// <summary>
@@ -62,8 +60,21 @@ namespace Codecool.LinkedList
         /// <param name="data">Value to be inserted.</param>
         public void Insert(int index, int data)
         {
-            throw new NotImplementedException();
+            if (Size <= index || index < 0)
+            {
+                throw new IndexOutOfRangeException("Tried to remove an invalid item!");
+            }
+            else if (index == 0)
+            {
+               
+            }
+            else
+            {
+                
+            }
+            Size++;
         }
+        
 
         /// <summary>
         /// Deletes the element at 'index' from the list.
@@ -91,7 +102,6 @@ namespace Codecool.LinkedList
                     throw new IndexOutOfRangeException("Tried to remove an invalid item!");
                 }
             }
-
             currentNode.Next = currentNode.Next.Next;
             Size--;
         }
@@ -103,7 +113,20 @@ namespace Codecool.LinkedList
         /// <returns>First index of elements equals to given value.</returns>
         public int IndexOf(int value)
         {
-            throw new NotImplementedException();
+            var currentNode = _head;
+            var index = 0;
+            var counter = 0;
+            while (counter < Size)
+            {
+                if (currentNode.Data == value)
+                {
+                    return index; 
+                }
+                index++;
+                counter++;
+                currentNode = currentNode.Next;
+            }
+            return -1;
         }
 
         /// <summary>
@@ -128,7 +151,7 @@ namespace Codecool.LinkedList
             /// Gets or sets the next node reference
             /// </summary>
             public Link Next { get; set; }
-
+            
             /// <summary>
             /// Initializes a new instance of the <see cref="Link"/> class.
             /// </summary>
