@@ -115,15 +115,13 @@ namespace Codecool.LinkedList
         {
             var currentNode = _head;
             var index = 0;
-            var counter = 0;
-            while (counter < Size)
+            while (index < Size)
             {
                 if (currentNode.Data == value)
                 {
                     return index; 
                 }
                 index++;
-                counter++;
                 currentNode = currentNode.Next;
             }
             return -1;
