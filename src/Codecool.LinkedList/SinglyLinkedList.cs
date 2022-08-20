@@ -66,11 +66,22 @@ namespace Codecool.LinkedList
             }
             else if (index == 0)
             {
-               
+                var newNode = new Link(data);
+                newNode.Next = _head;
+                _head = newNode;
             }
             else
             {
-                
+                var currentNode = _head;
+                var counter = 0;
+                while (counter != index-1)
+                {
+                    currentNode = currentNode.Next;
+                    counter++;
+                }
+                var newNode = new Link(data);
+                newNode.Next = currentNode.Next;
+                currentNode.Next = newNode;
             }
             Size++;
         }
