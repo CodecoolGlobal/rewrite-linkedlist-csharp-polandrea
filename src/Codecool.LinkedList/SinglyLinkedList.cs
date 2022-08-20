@@ -60,7 +60,7 @@ namespace Codecool.LinkedList
         /// <param name="data">Value to be inserted.</param>
         public void Insert(int index, int data)
         {
-            if (Size <= index || index < 0)
+            if (Size < index || index < 0)
             {
                 throw new IndexOutOfRangeException("Tried to remove an invalid item!");
             }
