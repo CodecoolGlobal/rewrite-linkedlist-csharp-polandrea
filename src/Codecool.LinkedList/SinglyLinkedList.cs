@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Codecool.LinkedList
 {
@@ -146,7 +148,16 @@ namespace Codecool.LinkedList
         /// <returns>String representation of LinkedList</returns>
         public override string ToString()
         {
-            throw new NotImplementedException();
+            List<string> linkedList = new List<string>();
+            var currentNode = _head;
+            var index = 0;
+            while (index < Size)
+            {
+                linkedList.Add(currentNode.Data.ToString());
+                currentNode = currentNode.Next;
+                index++;
+            }
+            return $"[{String.Join(", ", linkedList.ToArray())}]";
         }
 
         private class Link
