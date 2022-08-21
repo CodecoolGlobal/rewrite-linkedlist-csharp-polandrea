@@ -7,7 +7,7 @@ namespace Codecool.LinkedList
     /// <summary>
     /// Generic singly linked list implementation.
     /// </summary>
-    public class SinglyLinkedList
+    public class SinglyLinkedList<T>
     {
         private Link _head;
 
@@ -21,7 +21,7 @@ namespace Codecool.LinkedList
         /// The new element is appended to the current last item.
         /// </summary>
         /// <param name="data">Value to be appended.</param>
-        public void Add(int data)
+        public void Add(T data)
         {
             if (Size != 0) {
                 var currentNode = _head;
@@ -38,7 +38,7 @@ namespace Codecool.LinkedList
         /// </summary>
         /// <param name="index">Index of requested element.</param>
         /// <returns>Value of requested element.</returns>
-        public int Get(int index)
+        public T Get(int index)
         {
             if (Size <= index)
             {
@@ -60,7 +60,7 @@ namespace Codecool.LinkedList
         /// </summary>
         /// <param name="index">Index of inserted element.</param>
         /// <param name="data">Value to be inserted.</param>
-        public void Insert(int index, int data)
+        public void Insert(int index, T data)
         {
             if (Size < index || index < 0)
             {
@@ -124,13 +124,13 @@ namespace Codecool.LinkedList
         /// </summary>
         /// <param name="value">Value to search.</param>
         /// <returns>First index of elements equals to given value.</returns>
-        public int IndexOf(int value)
+        public int IndexOf(T value)
         {
             var currentNode = _head;
             var index = 0;
             while (index < Size)
             {
-                if (currentNode.Data == value)
+                if (currentNode.Data.Equals(value))
                 {
                     return index; 
                 }
@@ -165,7 +165,7 @@ namespace Codecool.LinkedList
             /// <summary>
             /// Gets or sets the node data
             /// </summary>
-            public int Data { get; set; }
+            public T Data { get; set; }
 
             /// <summary>
             /// Gets or sets the next node reference
@@ -176,7 +176,7 @@ namespace Codecool.LinkedList
             /// Initializes a new instance of the <see cref="Link"/> class.
             /// </summary>
             /// <param name="data">Value to store</param>
-            public Link(int data)
+            public Link(T data)
             {
                 Data = data;
             }
